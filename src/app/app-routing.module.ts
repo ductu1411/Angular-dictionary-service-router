@@ -2,13 +2,15 @@ import {DictionaryPageComponent} from './dictionary-page/dictionary-page.compone
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {DictionaryDetailComponent} from "./dictionary-detail/dictionary-detail.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [{
   path: 'dictionary',
   component: DictionaryPageComponent,
   children: [{
     path: ':key',
-    component: DictionaryDetailComponent
+    component: DictionaryDetailComponent,
+    canActivate: [AuthGuard]
   }]
 }];
 

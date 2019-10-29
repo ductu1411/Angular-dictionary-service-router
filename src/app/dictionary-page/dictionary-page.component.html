@@ -8,4 +8,11 @@
   </li>
 </ul>
 
-<router-outlet></router-outlet>
+<div>
+  <button (click)= "authService.login()">
+    Login
+  </button>
+  <button (click)= "authService.logout()">
+    Logout
+  </button>
+</div>
