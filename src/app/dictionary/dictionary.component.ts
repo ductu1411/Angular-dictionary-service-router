@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface IWord {
-  key: string;
-  meaning: string;
-}
+import {DictionaryService, IWord} from '../dictionary.service';
 
 @Component({
   selector: 'app-dictionary',
@@ -11,30 +7,18 @@ export interface IWord {
   styleUrls: ['./dictionary.component.scss']
 })
 export class DictionaryComponent implements OnInit {
-  private words: IWord[] = [
-    {key: 'service', meaning: 'dịch vụ'},
-    {key: 'service provider', meaning: 'nhà cung cấp dịch vụ'},
-    {key: 'provide', meaning: 'cung cấp'},
-    {key: 'efficient', meaning: 'hiệu quả'},
-    {key: 'snow', meaning: 'tuyết'}
-  ];
-  private word: IWord;
+  word: IWord;
 
-  constructor() { }
+  constructor(private dictionaryService: DictionaryService) { }
 
-  ngOnInit() {
-  }
   search(word: string) {
-    const w = this.words.find(item => item.key === word.toLowerCase());
-    let meaning;
-    if (w) {
-      meaning = w.meaning
-    } else {
-      meaning = 'Not found';
-    }
+    const meaning = this.dictionaryService.search(word);
     this.word = {
       key: word,
       meaning: meaning
     };
+  }
+
+  ngOnInit() {
   }
 }
