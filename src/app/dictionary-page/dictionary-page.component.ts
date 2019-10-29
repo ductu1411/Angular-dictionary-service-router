@@ -13,6 +13,7 @@ export class DictionaryPageComponent implements OnInit {
     private dictionaryService: DictionaryService,
     public authService: AuthService
   ) { }
+
   ngOnInit() {
     this.listWord = this.dictionaryService.getAll();
   }

@@ -15,7 +15,7 @@ export class AuthService {
   login() {
     this.user = {
       name: 'bob',
-      token: 'token'
+      token: 'token',
     };
   }
 
