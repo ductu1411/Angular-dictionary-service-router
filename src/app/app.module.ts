@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
 import { DictionaryPageComponent } from './dictionary-page/dictionary-page.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { DictionaryPageComponent } from './dictionary-page/dictionary-page.compo
     DictionaryPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
